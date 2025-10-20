@@ -42,5 +42,8 @@ void				*memchr(const void *s, int c, size_t n);
 int					memcmp(const void *s1, const void *s2, size_t n);
 char				*strnstr(const char *big, const char *little, size_t len);
 int					atoi(const char *nptr);
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
 
 #endif

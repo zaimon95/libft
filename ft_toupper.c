@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sla-gran <sla-gran@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 16:32:32 by sla-gran          #+#    #+#             */
-/*   Updated: 2025/10/15 16:32:32 by sla-gran         ###   ########.fr       */
+/*   Created: 2025/10/16 11:00:46 by sla-gran          #+#    #+#             */
+/*   Updated: 2025/10/16 11:00:46 by sla-gran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int	ft_toupper(int c)
 {
-	size_t	i;
-	size_t	size;
-	char	*d;
-	const char	*s = (const char *)src;
-
-	d = (char *)dest;
-	i = 0;
-	size = n;
-	if (src < dest)
-		while (n--)
-			d[n] = s[n];
-	else
-		while (++i < n)
-			d[i] = s[i];
-	return (dest);
+	if (c >= 'a' || c <= 'z')
+		c -= 32;
+	return (c);
 }

@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-void	*ft_memset(void *str, int c, size_t n)
+#include "libft.h"
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
-	unsigned char *s;
+	unsigned char *str;
 
-	s = str;
+	str = s;
 	i = 0;
 	while (i < n)
 	{
-		s[i] = c;
+		str[i] = c;
 		i++;
 	}
-	return (str);
+	return (s);
 }
-
+/*
 #include <stdio.h>
 #include <stdlib.h>
 int main(void)
@@ -33,4 +33,4 @@ int main(void)
 	char s[6] = "test12";
 	ft_memset(s, 'd', 1);
 	printf("%s \n", s);
-}
+}*/

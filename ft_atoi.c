@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_atoi(const char *nptr)
 {
 	int	sign;
@@ -36,4 +34,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (res * sign);
 }
-

@@ -17,17 +17,17 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if(little == NULL)
+	if (little == NULL)
 		return ((char *)&big[0]);
 	i = 0;
 	while (i <= len)
 	{
 		j = 0;
-		while (big[i+j] == little[j] && big[i+j])
+		while (big[i + j] == little[j] && big[i + j])
 		{
 			j++;
-			if(!little[j])
-				return ((char *)&big[i]);
+			if (!little[j])
+				return ((char *) &big[i]);
 		}
 		i++;
 	}

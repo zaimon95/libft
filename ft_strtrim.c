@@ -34,11 +34,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	while (s1[i] && isset(s1[i], set))
 		i++;
-	printf("%zu\n", i);
 	j = ft_strlen(s1) - 1;
 	while (s1[j] && isset(s1[j], set))
 		j--;
-	printf("%zu\n", j);
 	return (ft_substr(s1, i, (j - i + 1)));
 }
 

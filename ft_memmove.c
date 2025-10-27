@@ -15,14 +15,12 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t		i;
-	size_t		size;
 	char		*d;
 	const char	*s;
 
 	s = (const char *)src;
 	d = (char *)dest;
 	i = -1;
-	size = n;
 	if (src < dest)
 		while (n--)
 			d[n] = s[n];

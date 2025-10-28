@@ -51,9 +51,9 @@ CFLAGS := -Wall -Wextra -Werror
 
 OBJ := $(SRC:.c=.o)
 
-all : $(NAME)
-
 OBJ_BONUS := $(SRC_BONUS:.c=.o)
+
+all : $(NAME)
 
 bonus : $(OBJ) $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)

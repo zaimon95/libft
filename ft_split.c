@@ -37,9 +37,9 @@ char	*ft_strndup(char const *str, size_t len)
 	size_t	i;
 
 	res = malloc(sizeof(char) * (len + 1));
-	i = 0;
 	if (!res)
 		return (NULL);
+	i = 0;
 	while (i < len)
 	{
 		res[i] = str[i];
@@ -49,20 +49,22 @@ char	*ft_strndup(char const *str, size_t len)
 	return (res);
 }
 
-char	**ft_split(char const *s, char c)
+char	**free_test(char **strs, int j)
 {
-	char	**strs;
-	size_t	i;
-	int		j;
-	size_t	start;
+	while (j > 0)
+		free(strs[--j]);
+	free(strs);
+	return (NULL);
+}
 
-	if (!s)
-		return (NULL);
-	j = 0;
+char	**ft_fill_split(char **strs, char const *s, char c)
+{
+	size_t	i;
+	size_t	start;
+	int		j;
+
 	i = 0;
-	strs = malloc(sizeof(char *) * ((ft_wordcount(s, c) + 1)));
-	if (!strs)
-		return (NULL);
+	j = 0;
 	while (s[i])
 	{
 		while (s[i] == c)
@@ -71,15 +73,49 @@ char	**ft_split(char const *s, char c)
 		while (s[i] && s[i] != c)
 			i++;
 		if (i > start)
-			strs[j++] = ft_strndup(s + start, i - start);
+		{
+			strs[j] = ft_strndup(s + start, i - start);
+			if (!strs[j++])
+				return (free_test(strs, j));
+		}
 	}
 	strs[j] = NULL;
 	return (strs);
 }
 
+char	**ft_split(char const *s, char c)
+{
+	char	**strs;
+
+	if (!s)
+		return (NULL);
+	strs = malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
+	if (!strs)
+		return (NULL);
+	return (ft_fill_split(strs, s, c));
+}
+
 /*#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h" // Make sure this includes your ft_split prototype
+
+int main(void)
+{
+	char **strs = ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", '^');
+
+	if (!strs)
+		return (1);
+	int i = -1;
+	while (strs[++i])
+		printf("'%s'\n", strs[i]);
+	printf("'%s'\n", strs[i]);
+
+	for (int i = 0; strs[i]; i++)
+		free(strs[i]);
+	free(strs);
+
+	return EXIT_SUCCESS;
+}
 
 void	print_split(char **split)
 {
@@ -96,7 +132,8 @@ void	print_split(char **split)
 		i++;
 	}
 	printf("Total: %d strings\n", i);
-}
+}/home/sla-gran/francinette/temp/libft/fsoares/error.log
+
 
 int	main(void)
 {

@@ -94,14 +94,14 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ft_fill_split(strs, s, c));
 }
-
-/*#include <stdio.h>
+/*
+#include <stdio.h>
 #include <stdlib.h>
 #include "libft.h" // Make sure this includes your ft_split prototype
 
 int main(void)
 {
-	char **strs = ft_split("^^^1^^2a,^^^^3^^^^--h^^^^", '^');
+	char **strs = ft_split("", '^');
 
 	if (!strs)
 		return (1);
